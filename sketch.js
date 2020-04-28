@@ -12,6 +12,7 @@ onst Engine = Matter.Engine
 */
 var ground;
 var head, shooter, cannonBall, cannonBallImage, tanker;
+var bouncyBall1, bouncyBall2;
 
 function setup() {
     // Setup the canvas, the ground the, tanker, the shooting ball and the bubble balls.
@@ -21,10 +22,13 @@ function setup() {
 
     ground = new Ground(600,390,1200,20);
     tanker = new Tanker(100,360,100,40);
-    head = new Ball(100,340,85);
+    head = new Ball(100,336,85);
     shooter = new ShootBall(150,312,125,25);
 
-    cannonBall = new CanonBall(250, 312, 20);
+    cannonBall = new CanonBall(192, 312, 20);
+
+    bouncyBall1 = new BouncyBall(600, 200, 25);
+    bouncyBall2 = new BouncyBall(1100, 200, 25);
 }
 
 function draw() {
@@ -37,26 +41,11 @@ function draw() {
     head.display();
     shooter.display();
     cannonBall.display();
+    bouncyBall1.display();
+    bouncyBall2.display();
 }
 
 
 function keyReleased() {
     // Call the shoot method for the cannon.
-
-    if(keyDown("space")) {
-        cannonBall.velocityX = 2;
-
-        cannonBall_options = {
-            "density" :   1.5,
-            "friction" : 1.0,
-            "restitution" : 0.8,
-            "frictionAir": 0.06
-        }
-    } else {
-        cannonBall.velocityX = 0;
-
-        cannonBall_options = {
-            "isStatic": true
-        }
-    }
 }

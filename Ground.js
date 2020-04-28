@@ -10,8 +10,14 @@ class Ground {
   }
   display(){
     var pos =this.body.position;
+    var angle = this.body.angle;
+    push();
+    translate(pos.x, pos.y);
+    rotate(angle);
     rectMode(CENTER);
-    fill("maroon");
-    rect(pos.x, pos.y, this.width, this.height);
+    noStroke();
+    fill("brown");
+    rect(0, 0, this.width, this.height);
+    pop();
   }
 };
